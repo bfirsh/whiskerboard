@@ -3,4 +3,5 @@ South==0.7.3
 Unipath
 django-redis-cache
 epio
+fabric
 
