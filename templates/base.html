@@ -5,6 +5,7 @@
     <title>{% block title %}{{ current_site.name }}{% endblock %}</title>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" type="text/css" media="screen">
     <link rel="stylesheet" href="{{ STATIC_URL}}css/style.css" type="text/css" media="screen">    
+    <link rel="alternate" type="application/atom+xml" title="Latest status updates." href="{% url feed %}">
   </head>
   <body>
     <div id="wrapper">

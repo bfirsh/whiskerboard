@@ -20,12 +20,12 @@
               {% for service in services %}
                 <tr>
                   <td>
-                    <a href="/services/{{ service.slug }}">
+                    <a href="{{ service.get_absolute_url }}">
                       {{ service.name }} </a>
                   </td>
                   
                   <td class="status highlight">
-		    <a href="/services/{{ service.slug }}">
+		    <a href="{{ service.get_absolute_url }}">
           {% with service.events.latest.status as latest_status %}{% if latest_status %}
           <img src="{{ STATIC_URL }}images/status/{{ latest_status.image }}.png"
                       alt="{{ latest_status }}"/>
