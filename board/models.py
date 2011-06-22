@@ -1,5 +1,4 @@
 from datetime import datetime, date, timedelta
-from django.core.urlresolvers import reverse
 from django.db import models
 
 class Service(models.Model):
@@ -15,9 +14,10 @@ class Service(models.Model):
     
     def __unicode__(self):
         return self.name
-
+    
+    @models.permalink
     def get_absolute_url(self):
-        return reverse('service', kwargs={'slug': self.slug})
+        return ('service', [self.slug])
 
     def last_five_days(self):
         """
