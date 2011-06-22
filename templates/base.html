@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{{ current_site.name }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/style.css" type="text/css" media="screen">    
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <img id="logo" src="{{ STATIC_URL }}images/logo.png" alt="Logo">
+        <a href="/"><h1 id="title">{{ current_site.name }}</h1></a>
+      </div>
+      <div id="content">
+        {% block content %}
+          
+        {% endblock %}
+      </div>
+      <div id="push"></div>
+    </div>
+    <div id="footer">
+      <ul class="left">
+	<li>
+       <li id="icons">Icons by <a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a></li>
+      </ul>
+      <ul class="right">
+	<li id="powered">POWERED BY <a href="http://github.com/bfirsh/whiskerboard">WHISKERBOARD</a>, BASED ON <a href="http://www.stashboard.org">STASHBOARD</a></li>
+       </ul>
+    </div>
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>
+

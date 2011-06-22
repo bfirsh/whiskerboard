@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}{{ service.name }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+        
+      <div id="webservices" class="frame">
+        
+        <h2>{{ service.name }}</h2>
+
+	<p id="serviceDescription">{{ service.description }}</p>
+        
+        <h3 class="date-range">
+          {% if start_date %}
+            {{ start_date|date:"n/j/Y"  }}
+          {% endif %}
+        </h3>
+        
+        <table class="event-log" cellpadding="10">
+          <thead>
+            <tr>
+              <th class="time-header">Time</th>
+              <th class="status-header">Status</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody id="events-tbody">
+            {% for e in service.events.all %}
+              <tr>
+                <td>{{ e.start|date:"N j, fA" }}</td>
+                <td class="status highlight">
+                  {% if e.informational %}
+                    <img src="{{ STATIC_URL }}images/status/information.png" alt="Information">
+                  {% else %}
+                    <img src="{{ STATIC_URL }}images/status/{{ e.status.image }}.png" alt="{{ e.status.name }}">
+                  {% endif %}
+                </td>
+                <td>{{ e.message }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
+{% endblock %}
+

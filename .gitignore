@@ -1,0 +1,7 @@
+*.pyc
+.epio-app
+static_root/
+*.un~
+.*.sw*
+settings/local.py
+.DS_Store
