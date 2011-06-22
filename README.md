@@ -10,7 +10,7 @@ Have a look at the demo: [http://whiskerboard.ep.io/](http://whiskerboard.ep.io/
 Quick start guide
 -----------------
 
-It's dead quick to get status board up and running using [ep.io](http://ep.io/). 
+It's dead quick to get a status board up and running using [ep.io](http://ep.io/). 
 
 Create an application on ep.io then run these two commands, replacing `myamazingboard` with the name of your application: 
     
