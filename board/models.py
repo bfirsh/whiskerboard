@@ -42,8 +42,9 @@ class Service(models.Model):
         
         for event in events:
             if event.status.severity > severity:
-                stats[event.start.day]["image"] = "information"
-                stats[event.start.day]["information"] = True
+                if event.start.day in stats:
+                    stats[event.start.day]["image"] = "information"
+                    stats[event.start.day]["information"] = True
 
         results = []
 
