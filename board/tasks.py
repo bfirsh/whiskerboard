@@ -15,7 +15,21 @@ def http_checker(service):
         else:
             service.update_status('Up', resp.status_code)
     except requests.exceptions.RequestException as e:
-        service.update_status('Down', str(e))
+        # for an unknown reason, curl may work here, and requests fail
+        # so let's try it out
+        skip_ssl_flag = '-k ' if not verify_ssl else ''
+        try:
+            res = subprocess.check_output(
+                    ('curl %s %s-m 3 -I --silent"' %
+                    (service.connection_string, skip_ssl_flag)).split())
+            if any([status in res for status in
+                   ('500', '501', '502', '503', '504')]):
+                service.update_status('Down', res)
+            else:
+                service.update_status('Up', res)
+
+        except subprocess.CalledProcessError as e:
+            service.update_status('Down', str(e))
 
 check_https = task(http_checker)
 check_http = task(http_checker)
