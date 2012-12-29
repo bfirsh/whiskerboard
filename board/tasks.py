@@ -19,7 +19,7 @@ def http_checker(service):
         # so let's try it out
         skip_ssl_flag = '-k ' if not verify_ssl else ''
         p = subprocess.Popen(
-            ('curl %s %s-m 3 -I --silent"' %
+            ('curl %s %s-m 3 -I' %
             (service.connection_string, skip_ssl_flag)).split(),
             stdout=subprocess.PIPE)
 
