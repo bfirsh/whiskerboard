@@ -4,7 +4,9 @@ from django.core.exceptions import ImproperlyConfigured
 try:
     from .deploy import *
 except ImportError:
+    print "deploy.py not found, trying local.py"
     try:
         from .local import *
     except ImportError:
-        raise ImproperlyConfigured('You need to create settings/local.py and set SECRET_KEY. If you deploy with Fabric, it will automatically create this for you.')
+        print "local.py not found, exiting"
+        raise ImproperlyConfigured()
