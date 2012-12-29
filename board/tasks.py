@@ -15,7 +15,7 @@ def http_checker(service):
         else:
             service.update_status('Up', resp.status_code)
     except requests.exceptions.RequestException as e:
-        service.update_status('Down', e.message)
+        service.update_status('Down', str(e))
 
 check_https = task(http_checker)
 check_http = task(http_checker)
