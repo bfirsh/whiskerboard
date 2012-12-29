@@ -2,11 +2,11 @@ from __future__ import absolute_import
 from django.core.exceptions import ImproperlyConfigured
 
 try:
-    from .deploy import *
+    from .local import *
 except ImportError:
-    print "deploy.py not found, trying local.py"
+    print "local.py not found, trying deploy.py"
     try:
-        from .local import *
+        from .deploy import *
     except ImportError:
-        print "local.py not found, exiting"
+        print "deploy.py not found, we will now die. DIE."
         raise ImproperlyConfigured()
