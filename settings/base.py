@@ -23,6 +23,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'board',
+    'djcelery',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -134,3 +135,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'board.context_processors.current_site',
 )
 
+######################################
+## Celery
+######################################
+
+import djcelery
+djcelery.setup_loader()

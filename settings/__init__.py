@@ -1,14 +1,12 @@
 from __future__ import absolute_import
 from django.core.exceptions import ImproperlyConfigured
-import os
-
-if 'EPIO' in os.environ:
-    from .epio import *
-else:
-    from .base import *
 
 try:
     from .local import *
 except ImportError:
-    raise ImproperlyConfigured('You need to create settings/local.py and set SECRET_KEY. If you deploy with Fabric, it will automatically create this for you.')
-
+    print "local.py not found, trying deploy.py"
+    try:
+        from .deploy import *
+    except ImportError:
+        print "deploy.py not found, we will now die. DIE."
+        raise ImproperlyConfigured()
