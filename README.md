@@ -23,4 +23,37 @@ Now head over to http://myamazingboard.ep.io/admin/ and login with the account y
 
 Back on the admin home page, click on "services" and add the things you want to report the status of (website, API etc). To change the status of a service add an event for it.
 
+Configuration
+-------------
+
+The configuration files are located in the `setting` directory, with `base.py` being the most relevant.
+
+You'll want to edit the following configuration options accordingly:
+
+- `DATABASES`:
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'whiskerboard',
+        'USER': 'whiskerboard',
+        'PASSWORD': 'supersekritpassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+
+- `TIME_ZONE`
+
+`TIME_ZONE = 'Etc/UTC'`
+
+- `ADMINS`
+
+```
+ADMINS = (
+    ('Your Name', 'your_email@example.com'),
+)
+```
 
