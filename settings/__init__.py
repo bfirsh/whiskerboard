@@ -2,10 +2,7 @@ from __future__ import absolute_import
 from django.core.exceptions import ImproperlyConfigured
 import os
 
-if 'EPIO' in os.environ:
-    from .epio import *
-else:
-    from .base import *
+from .base import *
 
 try:
     from .local import *

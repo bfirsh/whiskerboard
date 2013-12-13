@@ -5,12 +5,6 @@ import random
 def app(app):
     env['app'] = app
 
-def epio(command):
-    if env.get('app', None):
-        local("epio {0} -a {1}".format(command, env['app']))
-    else:
-        local("epio {0}".format(command))
-
 def setup():
     if not os.path.exists('settings/local.py'):
         with open('settings/local.py', 'w') as fp:
@@ -23,7 +17,6 @@ def setup():
 def deploy():
     setup()
     local("./manage.py collectstatic --noinput")
-    epio('upload')
-    epio('django syncdb')
-    epio('django migrate')
+    local("./manage.py syncdb")
+    local("./manage.py migrate")
 
