@@ -4,9 +4,10 @@ from django.core.exceptions import ImproperlyConfigured
 try:
     from .local import *
 except ImportError:
-    print "local.py not found, trying deploy.py"
+    print "local.py not found, trying production.py"
     try:
-        from .deploy import *
+        from .production import *
     except ImportError:
-        print "deploy.py not found, we will now die. DIE."
+        print "production.py not found, dying."
         raise ImproperlyConfigured()
+
