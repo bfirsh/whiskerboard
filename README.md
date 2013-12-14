@@ -72,7 +72,8 @@ Whiskerboard wasn't originally made to check the availability of the services,
 but it now supports q way to do so, by using celery checks. If you need it, 
 you'll need to:
 
-- Install celery and django-celery to your virtual environment;
+- Install celery and django-celery to your virtual environment:
+  `pip install celery django-celery`
 - Add `djcelery` to the INSTALLED_APPS list in your settings;
 - add a `connection_string` value to your services; it should be of the form
   `protocol://host:port` (protocol can be ping, http or https for now);

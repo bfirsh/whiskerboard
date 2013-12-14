@@ -137,8 +137,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 ######################################
 ## Celery
 ######################################
+
 try:
     import djcelery
     djcelery.setup_loader()
+    INSTALLED_APPS += ("djcelery", )
 except ImportError:
-    pass
+    CELERY = False
+
