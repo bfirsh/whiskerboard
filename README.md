@@ -69,7 +69,7 @@ Adding services checks
 ----------------------
 
 Whiskerboard wasn't originally made to check the availability of the services,
-but it now supports q way to do so, by using celery checks. If you need it, 
+but it now supports a way to do so, by using celery checks. If you need it, 
 you'll need to:
 
 - Install celery and django-celery to your virtual environment:
