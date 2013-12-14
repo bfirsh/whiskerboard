@@ -23,8 +23,8 @@ Configuration
 
 The configuration files are located in the `setting` directory. You now need 
 to configure your application. To do so, you can copy the `local.py.dist` file 
-to `local.py`, or create a `deploy.py` file, depending on what you are doing 
-(development versus deployment)::
+to `local.py`, or create a `production.py` file, depending on what you are doing 
+(development versus production)::
 
     $ cp settings/local.py{.dist,}
 
