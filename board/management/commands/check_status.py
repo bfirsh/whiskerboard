@@ -8,10 +8,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kw):
         for service in Service.objects.all():
-            if service.connection_string:
+            if service.connection_string and bool(CELERY):
                 self.check_status(service)
 
     def check_status(self, service):
         checker = getattr(tasks, 'check_%s' % service.connection.scheme)
-        if checker:
+        if checker and bool(CELERY):
             checker.delay(service)
