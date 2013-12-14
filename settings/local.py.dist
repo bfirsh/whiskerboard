@@ -1,0 +1,12 @@
+from .base import *
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'whiskerboard.db',
+    }
+}
+
+# VERIFY_SSL = False # (uncomment if you want to do unsecure SSL calls)
+
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
