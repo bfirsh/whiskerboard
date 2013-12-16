@@ -134,3 +134,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'board.context_processors.current_site',
 )
 
+######################################
+## Celery
+######################################
+
+try:
+    import djcelery
+    djcelery.setup_loader()
+    INSTALLED_APPS += ("djcelery", )
+except ImportError:
+    CELERY = False
+
