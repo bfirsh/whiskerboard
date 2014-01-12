@@ -10,3 +10,9 @@ DATABASES = {
 # VERIFY_SSL = False # (uncomment if you want to do unsecure SSL calls)
 
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+
+INSTALLED_APPS = ['django.contrib.admin', 'django.contrib.contenttypes']
+
+# With celery:
+# INSTALLED_APPS = ['djcelery', 'django.contrib.admin', 'django.contrib.contenttypes']
+
